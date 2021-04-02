@@ -1,0 +1,14 @@
+class Solution {
+	public static void main(String args[]) {
+		int []arr = {6,7,3,4,2,8};
+		int leastElement = arr[0];
+		int greatestElement = arr[0];
+		for(int i=0;i<arr.length-1;i++) {
+			if(leastElement>arr[i+1])
+				leastElement = arr[i+1];
+			if(greatestElement<arr[i+1])
+				greatestElement = arr[i+1];
+		}
+		System.out.println(leastElement+" "+greatestElement);
+	}
+}
