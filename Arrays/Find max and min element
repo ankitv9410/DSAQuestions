@@ -1,14 +1,27 @@
-class Solution {
-	public static void main(String args[]) {
-		int []arr = {6,7,3,4,2,8};
-		int leastElement = arr[0];
-		int greatestElement = arr[0];
-		for(int i=0;i<arr.length-1;i++) {
-			if(leastElement>arr[i+1])
-				leastElement = arr[i+1];
-			if(greatestElement<arr[i+1])
-				greatestElement = arr[i+1];
+class Rough{
+	static int max,min;
+	public static void maxmin(int []arr){
+		if(arr[0]>arr[1]) {
+			max = arr[0];
+			min = arr[1];
 		}
-		System.out.println(leastElement+" "+greatestElement);
+		else {
+			max = arr[1];
+			min = arr[0];
+		}
+			
+		for (int i = 2; i < arr.length; i++) {
+			if(arr[i]>max)
+				max = arr[i];
+			else if(arr[i]<min)
+				min = arr[i];
+		}
+		return;
+	}
+	public static void main(String args[]) {
+		int []arr = {2,5,7,14,-5,0,9};
+		maxmin(arr);
+		System.out.println(max);
+		System.out.println(min);
 	}
 }
