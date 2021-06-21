@@ -30,3 +30,43 @@ class Solution {
 	}
 }
 ------------------------------------------------------
+class Solution {
+	public static void sortArray(int[] arr, int n) {
+		int i, lo, hi, temp;
+		lo = i = temp = 0;
+		hi = n;
+
+		while (i <= hi) {
+			switch (arr[i]) {
+			case 0:
+				temp = arr[lo];
+				arr[lo] = arr[i];
+				arr[i] = temp;
+				lo++;
+				i++;
+				break;
+			case 1:
+				i++;
+				break;
+			case 2:
+				temp = arr[hi];
+				arr[hi] = arr[i];
+				arr[i] = temp;
+				hi--;
+				break;
+			}
+		}
+	}
+
+	public static void printArray(int[] arr) {
+		for (int i : arr) {
+			System.out.println(i);
+		}
+	}
+
+	public static void main(String args[]) {
+		int[] arr = { 0, 1, 1, 0, 1, 2, 1, 2, 0, 0, 0, 1 };
+		sortArray(arr, arr.length - 1);
+		printArray(arr);
+	}
+}
