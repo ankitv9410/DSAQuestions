@@ -46,7 +46,51 @@ class Ankit {
 		this.end = end;
 	}
 }
-Time complexity = O(nlogn);
-space complexity = O(n);
+Time complexity = O(nlogn); logn for sorting and n for processing
+space complexity = O(n); due to storing array after stack that's why n space
 
 So we can optimized it-----------------------------------------------------------------------------------------------
+import java.util.Arrays;
+
+class Solution {
+	public static void mergeIntervals(Ankit arr[]) {
+
+		Arrays.sort(arr, (o1, o2) -> {
+			return o1.start - o2.start;
+		});
+
+		int index = 0;
+		for (int i = 1; i < arr.length; i++) {
+			if (arr[index].end >= arr[i].start) {
+				arr[index].end = Math.max(arr[index].end, arr[i].end);
+				arr[index].start = Math.min(arr[index].start, arr[i].start);
+			} else {
+				index++;
+				arr[index] = arr[i];
+			}
+		}
+		for (int i = 0; i <= index; i++) {
+			System.out.println("["+arr[i].start + " " + arr[i].end+"]");
+		}
+
+	}
+
+	public static void main(String args[]) {
+		Ankit arr[] = new Ankit[2];
+		arr[0] = new Ankit(1, 4);
+		arr[1] = new Ankit(4, 5);
+
+		mergeIntervals(arr);
+	}
+}
+
+class Ankit {
+	int start, end;
+
+	Ankit(int start, int end) {
+		this.start = start;
+		this.end = end;
+	}
+}
+Time complexity = O(nlogn)  logn for sorting and n for processing
+space complexity = O(1)
