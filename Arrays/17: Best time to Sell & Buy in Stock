@@ -61,11 +61,11 @@ class Solution {
 		max = maxProfit = 0;
 		for (int i = 1; i < arr.length; i++) {
 			if(arr[i]<min)
-				min = arr[i];
+				min = arr[i];    // min = Math.min(arr[i], min);
 			
 			max = arr[i]-min;
 			if(max>maxProfit)
-				maxProfit = max;
+				maxProfit = max;   // maxProfit = Math.max(max, maxProfit);
 		}
 		return maxProfit;
 	}
@@ -74,5 +74,5 @@ class Solution {
 		int[] arr = { 3, 5, 1, 7, 4, 9, 3 };
 		System.out.println(bruteForce(arr));
 	}
-}                                                Time O(n)   space O(n)
+}                                                Time O(n)   space O(1)
 ---------------------------------------------------------------------------
