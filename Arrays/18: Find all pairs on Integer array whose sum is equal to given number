@@ -21,4 +21,35 @@ class Solution {
 			arr[i] = sc.nextInt();
 		bruteForce(arr, k);
 	}
-}
+}				time O(n^2)  space O(1)
+------------------------------------------------------------
+import java.util.HashMap;
+
+class Solution {
+	static int arr[] = new int[] { 1, 1, 1, 1 };
+
+	static int getPairsCount(int n, int sum) {
+		HashMap<Integer, Integer> hmap = new HashMap<>();
+
+		for (int i = 0; i < n; i++) {
+			if (!hmap.containsKey(arr[i]))
+				hmap.put(arr[i], 0);
+
+			hmap.put(arr[i], hmap.get(arr[i]) + 1);
+		}
+		int count = 0;
+
+		for (int i = 0; i < n; i++) {
+			int j = sum - arr[i];
+			if (hmap.get(j) != null)
+				count += hmap.get(j);
+			if (j == arr[i])
+				count--;
+		}
+		return count / 2;
+	}
+	public static void main(String[] args) {
+		int sum = 2;
+		System.out.println("Count of pairs is " + getPairsCount(arr.length, sum));
+	}
+}				time O(n)  space O(n)
