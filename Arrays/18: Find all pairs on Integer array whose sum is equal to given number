@@ -23,6 +23,31 @@ class Solution {
 	}
 }				time O(n^2)  space O(1)
 ------------------------------------------------------------
+class Solution {
+	public static void findPairs(int[] arr, int sum) {
+		int low, high;
+		low = 0;
+		high = 1;
+		while (low < high) {
+			if (arr[low] + arr[high] == sum)
+				System.out.println(arr[low] + " " + arr[high]);
+			if (high == arr.length - 1) {
+				low++;
+				high = low;
+			}
+			if (low == arr.length - 1) {
+				break;
+			}
+			high++;
+		}
+	}
+	public static void main(String[] args) {
+		int[] arr = { 1, 5,7,-1,5 };
+		int sum = 6;
+		findPairs(arr, sum);
+	}
+}				time O(n(logn))  space O(1)
+------------------------------------------------------------
 import java.util.HashMap;
 
 class Solution {
