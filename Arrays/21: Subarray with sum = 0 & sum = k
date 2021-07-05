@@ -50,3 +50,27 @@ class Solution {
 }                        time O(n)    space O(n)
 ----------------------------------------------------
 
+import java.util.HashSet;
+import java.util.Set;
+class Solution {
+	public static boolean sum(int[] arr, int n) {
+		boolean found = false;
+		Set<Integer> set = new HashSet<>();
+		int sum = 0;
+		int k = 6;  //-2,-3,-4,10
+		for (int element : arr) {
+			set.add(sum);
+			sum += element;
+			if (set.contains(sum-k)) {
+				found = true;
+				break;
+			}
+		}
+		return found;
+	}
+	public static void main(String[] args) {
+
+		int[] arr = { 9, 4, -7, 2, 3, 7 };
+		System.out.println(sum(arr, arr.length));
+	}
+}                        time O(n)    space O(n)
