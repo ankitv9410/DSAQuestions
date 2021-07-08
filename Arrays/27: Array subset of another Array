@@ -20,3 +20,27 @@ class Solution {
 	}
 }                    time O(n^2)  space O(1)
 -----------------------------------------------
+import java.util.HashSet;
+import java.util.Set;
+class Solution {
+	static String subset(long[] arr1, long[] arr2) {
+		Set<Long> set = new HashSet<>();
+		for (long i : arr1) {
+			set.add(i);
+		}
+		int count = 0;
+		for (long i : arr2) {
+			if (set.contains(i))
+				count++;
+		}
+		if (count == arr2.length)
+			return "Yes";
+		else
+			return "No";
+	}
+	public static void main(String[] args) {
+		long[] arr1 = { 11, 1, 13, 21, 3, 7 };
+		long[] arr2 = { 11, 3, 7, 1 };
+		System.out.println(subset(arr1, arr2));
+	}
+}                    time O(n)  space O(n)
