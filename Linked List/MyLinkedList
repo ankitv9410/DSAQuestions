@@ -1,0 +1,46 @@
+class MyClass{
+	Node head;
+	void add(int data) {
+		Node toAdd = new Node(data);
+
+		if (head == null) {
+			head = toAdd;
+			return;
+		}
+		Node temp = head;
+		while (temp.next != null) {
+			temp = temp.next;
+		}
+		temp.next = toAdd;
+	}
+	void print() {
+		Node temp = head;
+		while(temp != null) {
+			System.out.println(temp.data);
+			temp = temp.next;
+		}
+	}
+	boolean isEmpty() {
+		return head == null;
+	}
+
+	static class Node {
+		int data;
+		Node next;
+
+		Node(int data) {
+			this.data = data;
+			next = null;
+		}
+	}
+}
+public class LinkedList{
+	public static void main(String args[]) {
+		MyClass ll = new MyClass();
+		ll.add(12);
+		ll.add(30);
+		ll.add(23);
+		
+		ll.print();
+	}
+}
