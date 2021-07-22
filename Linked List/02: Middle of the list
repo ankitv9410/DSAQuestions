@@ -1,0 +1,52 @@
+class Rough {
+	Node head;
+
+	static class Node {
+		int data;
+		Node next;
+
+		Node(int data) {
+			this.data = data;
+			next = null;
+		}
+	}
+
+	void add(int data) {
+		Node toAdd = new Node(data);
+
+		if (isEmpty()) {
+			head = toAdd;
+			return;
+		}
+
+		Node temp = head;
+		while (temp.next != null) {
+			temp = temp.next;
+		}
+		temp.next = toAdd;
+	}
+
+	boolean isEmpty() {
+		return head == null;
+	}
+	public static void main(String args[]) {
+		Rough ll = new Rough();
+		for (int i = 0; i < 6; i++) {
+			ll.add(10 + i);
+		}
+		int count = 0;
+		Node temp = ll.head;
+		while (temp != null) {
+			count++;
+			temp = temp.next;
+		}
+		System.out.println(count);
+		int newCount = count / 2 + 1, i = 0;
+
+		while (i < newCount) {
+			System.out.print(ll.head.data + " ");
+			ll.head = ll.head.next;
+			i++;
+		}
+	}
+}                    time O(n)+O(n/2)=>O(n)     space O(1)
