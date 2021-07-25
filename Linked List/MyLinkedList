@@ -49,3 +49,4 @@ class Solution {
 		ll.print();
 	}
 }
+Add,Size,Print,Remove First
