@@ -1,0 +1,56 @@
+class Solution {
+	static class Node {
+		int data;
+		Node next;
+	}
+
+	static class StackAdapter {
+		Node head;
+		Node tail;
+		int size;
+
+		int size() {
+			return size;
+		}
+		void push(int val) {
+			Node node = new Node();
+
+			node.data = val;
+			node.next = head;
+			head = node;
+			if (size == 0) {
+				tail = node;
+			}
+			size++;
+		}
+
+		int top() {
+			return head.data;
+		}
+
+		Node pop() {
+			head = head.next;
+			size--;
+			return head;
+		}
+
+		public void print() {
+			Node temp = head;
+			while (temp != null) {
+				System.out.print(temp.data + " ");
+				temp = temp.next;
+			}
+		}
+	}
+
+	public static void main(String args[]) {
+		StackAdapter st = new StackAdapter();
+		st.push(10);
+		st.push(20);
+		st.push(30);
+		st.push(40);
+		st.push(50);
+		st.print();
+		st.pop();
+	}
+}
