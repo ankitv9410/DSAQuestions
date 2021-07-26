@@ -59,3 +59,90 @@ class LinkedList {
 		ll.print(prev);
 	}
 }
+-------------------------------------------------------------------------------------
+class Rough {
+	static class Node {
+		int data;
+		Node next;
+	}
+
+	static class LinkedList {
+		Node head;
+		Node tail;
+		int size;
+
+		public void addLast(int val) {
+			Node temp = new Node();
+			temp.data = val;
+			temp.next = null;
+
+			if (size == 0) {
+				head = tail = temp;
+			} else {
+				tail.next = temp;
+				tail = temp;
+			}
+			size++;
+		}
+
+		public int llSize() {
+			return size;
+		}
+
+		public int print() {
+			Node temp = head;
+			while (temp != null) {
+				System.out.print(temp.data + " ");
+				temp = temp.next;
+			}
+			return 0;
+		}
+
+		public Node getAt(int idx) {
+			Node temp = head;
+			for (int i = 0; i < idx; i++) {
+				temp = temp.next;
+			}
+			return temp;
+		}
+
+		public void reverseList1() {
+			int li = 0, ri = size - 1;
+			while (li < ri) {
+				Node left = getAt(li);
+				Node right = getAt(ri);
+				int temp = left.data;
+				left.data = right.data;
+				right.data = temp;
+				li++;
+				ri--;
+			}
+		}
+
+		public void reverseList2() {
+			Node prev = null, next = null;
+			Node curr = head;
+			while (curr != null) {
+				next = curr.next;
+				curr.next = prev;
+
+				prev = curr;
+				curr = next;
+			}
+			Node temp = head;
+			head = tail;
+			tail = temp;
+		}
+	}
+
+	public static void main(String args[]) {
+		LinkedList ll = new LinkedList();
+		for (int i = 0; i < 5; i++) {
+			ll.addLast(11 + i);
+		}
+		ll.print();
+		// ll.reverseList1();
+		// ll.reverseList2();
+		ll.print();
+	}
+}
