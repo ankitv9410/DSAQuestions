@@ -30,9 +30,7 @@ class Solution {
   	public static void main(String args[]) {
 		sc = new Scanner(System.in);
 		Node root = createTree();
-		// inOrder(root);
-		// preOrder(root);
-		postOrder(root);
+		 inOrder(root);
 	}
 }
 class Node {
