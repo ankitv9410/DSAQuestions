@@ -1,0 +1,43 @@
+import java.util.Scanner;
+
+class Solution {
+	static Scanner sc = null;
+
+	public static Node createTree() {
+		Node root = null;
+		System.out.println("Enter data: ");
+		int data = sc.nextInt();
+		if (data == -1)
+			return null;
+
+		root = new Node(data);
+		System.out.println("Enter left of: " + data);
+		root.left = createTree();
+		System.out.println("Enter right of: " + data);
+		root.right = createTree();
+
+		return root;
+	}
+public static void preOrder(Node root) {
+		if (root == null)
+			return;
+
+		System.out.println(root.data);
+		preOrder(root.left);
+		preOrder(root.right);
+	}
+  public static void main(String args[]) {
+		sc = new Scanner(System.in);
+		Node root = createTree();
+		preOrder(root);
+	}
+}
+
+class Node {
+	int data;
+	Node left, right;
+
+	Node(int data) {
+		this.data = data;
+	}
+}
