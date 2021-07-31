@@ -69,4 +69,4 @@ class Solution {
 		sortArray(arr, arr.length - 1);
 		printArray(arr);
 	}
-}
+}			time O(n) space O(1)
