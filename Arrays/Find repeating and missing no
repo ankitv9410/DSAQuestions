@@ -1,0 +1,40 @@
+1 Method:
+Sort the Array
+Traverse the Array to find the repeating and missing element
+----------------------------------------------------------
+2 Method:
+class Solution {
+	public static void missAndRepeat(int[] arr, int n) {
+		int[] arr2 = new int[n+1];
+
+		int i = 0, temp = 0;
+		while (i < n) {
+			temp = arr[i];
+			arr2[temp] += 1;
+			i++;
+		}
+		// Repeating Element
+		for (int j=1;j<arr2.length;j++) {
+			if(arr2[j]>1) {
+				System.out.print(j+" ");
+				break;
+			}
+		}
+		// Missing Element
+		int flag=0;
+		for (int j=1;j<arr2.length;j++) {
+			if(arr2[j]==0) {
+				System.out.print(j+" ");
+				flag=1;
+			}
+		}
+		if(flag==0) {
+			System.out.println(n);
+		}
+	}
+	public static void main(String args[]) {
+		int[] arr = {1,2,1};
+		missAndRepeat(arr, arr.length);
+	}
+}                   time O(n)  space O(n)
+------------------------------------------------
