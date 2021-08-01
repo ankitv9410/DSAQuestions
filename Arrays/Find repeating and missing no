@@ -38,3 +38,26 @@ class Solution {
 	}
 }                   time O(n)  space O(n)
 ------------------------------------------------
+3rd Method
+class Solution {
+	public static void missAndRepeat(int[] arr, int n) {
+
+		for (int i = 0; i < n; i++) {
+            int abs_val = Math.abs(arr[i]);
+            System.out.println(abs_val);
+            if (arr[abs_val - 1] > 0)
+                arr[abs_val - 1] = -arr[abs_val - 1];
+            else
+                System.out.print(abs_val+" ");// Repeating Element
+        }
+		for (int i = 0; i < arr.length; i++) {
+			if(arr[i]>0) {
+				System.out.print(i+1); //missing element
+			}
+		}
+	}
+	public static void main(String args[]) {
+		int[] arr = {2,2 };
+		missAndRepeat(arr, arr.length);
+	}
+}                   time O(n)  space O(1)
