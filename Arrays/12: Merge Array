@@ -23,47 +23,42 @@ class Solution {
 }		      time O(n+n+n+nLogn) = O(nLogn)  space O(n)
 -----------------------------------------------------------------
 class Solution {
-	public static void mergeTwoArrays(int[] arr1, int[] arr2) {
-		int n1 = arr1.length;
-		int i=0,j=0;
-		while(i<n1) {
-			System.out.print(i+" ");
-			if(arr1[i]<arr2[j]) {
-				i++;
-			}
-			else {
-				int temp = arr2[j];
-				arr2[j] = arr1[i];
-				arr1[i] = temp;
-				sort(arr2);
-			}
-		}
-	}
 
-	public static void sort(int[] arr2) {
-		for (int i = 0; i < arr2.length; i++) {
-			for (int j = 0; j < arr2.length - 1; j++) {
-				if (arr2[j] > arr2[j + 1]) {
-					int temp = arr2[j];
-					arr2[j] = arr2[j + 1];
-					arr2[j + 1] = temp;
+	private static void mergeTwoSortedArr(int[] arr1, int[] arr2) {
+		int len1 = arr1.length;
+		int len2 = arr2.length;
+
+		int temp[] = new int[len1 + len2];
+
+		int i = 0, j = 0, k = 0;
+		while (i < len1 && j < len2) {
+			if (arr1[i] < arr2[j])
+				temp[k++] = arr1[i++];
+			else if (arr1[i] > arr2[j])
+				temp[k++] = arr2[j++];
+			else {
+				if (i < len1) {
+					temp[k++] = arr1[i++];
+					j++;
+				} else {
+					temp[k++] = arr2[j++];
+					i++;
 				}
 			}
 		}
-		return;
+		while(i<len1)
+			temp[k++] = arr1[i++];
+		while(j<len2)
+			temp[k++] = arr2[j++];
+		
+		for (int l : temp) {
+			System.out.print(l+" ");
+		}
 	}
-
 	public static void main(String args[]) {
-		int[] arr1 = { 1, 2, 7, 8, 9 };
-		int[] arr2 = { 3, 4, 5, 6 };
-		mergeTwoArrays(arr1, arr2);
-		System.out.println("Sorted Array:");
-		for (int i = 0; i < arr1.length; i++) {
-			System.out.print(arr1[i]+" ");
-		}
-		System.out.println();
-		for (int i = 0; i < arr2.length; i++) {
-			System.out.print(arr2[i]+" ");
-		}
+		// Scanner sc = new Scanner(System.in);
+		int[] arr1 = { 11, 33, 55, 77, 99,100,110 };
+		int[] arr2 = { 22, 44, 66, 88,99 };
+		mergeTwoSortedArr(arr1, arr2);
 	}
-}
+}		      time O(n) space O(n)
