@@ -1,0 +1,25 @@
+public class Test {
+	void func() {
+		String s = "ank";
+		char ch[] = s.toCharArray();
+		int i=0,j=ch.length-1,flag=0;
+		while(i<j) {
+			if(ch[i]==ch[j]) {
+				i++;
+				j--;
+			}else {
+				flag=1;
+				System.out.println("This is not palindrome");
+				break;
+			}
+		}
+		if(flag==0) {
+			System.out.println("This is palindrome");
+		}
+	}
+	public static void main(String args[]) {
+		Test t = new Test();
+		t.func();
+	}
+}             time = O(n)
+------------------------------------
