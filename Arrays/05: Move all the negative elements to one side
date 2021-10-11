@@ -5,25 +5,22 @@ class Solution{
 		printArray(arr);
 	}
 	private static void seperateElements(int[] arr) {
-		int lo,temp;
-		lo = temp = 0;
+		int j=0;
 		for (int i = 0; i < arr.length; i++) {
 			if(arr[i]<0) {
-				if(i!=0) {
-				temp = arr[i];
-				arr[i] = arr[lo];
-				arr[lo] = temp;
-				lo++;
+				if(i!=j) {
+					int temp = arr[i];
+					arr[i] = arr[j];
+					arr[j] = temp;
 				}
+				j++;
 			}
 		}
-	}
-	public static void printArray(int arr[]) {
 		for (int i : arr) {
-			System.out.println(i);
+			System.out.print(i+" ");
 		}
 	}
-}
+}		time O(n)
 ---------------------------------------------------------------------------------
 class Solution {
 
@@ -34,30 +31,36 @@ class Solution {
 	}
 
 	public static void seperateElements(int[] arr) {
-		int i,left, right, temp;
-		left = temp = i = 0;
-		right = arr.length - 1;
-		while(i<=right) {
-			if (arr[i] < 0) {
-				if (i != 0) {
-					temp = arr[left];
-					arr[left] = arr[i];
-					arr[i] = temp;
-				}
-				left++;
-				i++;
-			} else {
-				temp = arr[right];
-				arr[right] = arr[i];
-				arr[i] = temp;
-				right--;
+		int start=0,end=arr.length-1;
+		for (int j = 0; j < arr.length; j++) {
+			if(arr[j]<00)
+				start++;
+			else 
+				break;
+		}
+		for (int j = 0; j < arr.length; j++) {
+			if(arr[arr.length-1-j]==2)
+				end--;
+			else 
+				break;
+		}
+		
+		int i=start,temp=0;
+		while(i<=end){
+			if(arr[i]<0) {
+				temp = arr[i];
+				arr[i] = arr[start];
+				arr[start] = temp;
+				start++;
+			}else if(arr[i]>0){
+				temp = arr[i];
+				arr[i] = arr[end];
+				arr[end] = temp;
+				end--;
 			}
+			i++;
 		}
-	}
-
-	public static void printArray(int arr[]) {
-		for (int i : arr) {
-			System.out.println(i);
+		for (int j : arr) {
+			System.out.print(j+" ");
 		}
-	}
-}
+}		time O(n)
