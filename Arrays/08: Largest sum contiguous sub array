@@ -1,21 +1,44 @@
-class Solution {
-	public static int sum(int[] arr) {
-		int max = arr[0];
-		int sum = max;
-		for (int i = 1; i < arr.length; i++) {
-			sum += arr[i];
-			if (sum > max) {
-				max = sum;
-			}
-			if (sum < 0) {
-				sum = 0;
-			}
+1)Using 2 For loop
+static void maxSubArraySum(int[] arr, int n) {
+	int max=0;
+	for (int i = 0; i < arr.length; i++) {
+		int sum=0;
+	for (int j = i; j < arr.length; j++) {
+		sum += arr[j];
+		if(max<sum)
+			max = sum;
 		}
-		return max;
+	}		
+System.out.println(max);
+}	time O(n^2)
+----------------------------------
+2)Using one For Loop
+static void maxSubArraySum(int[] arr, int n) {
+int max = 0,sum = 0;
+	for (int j = 0; j < arr.length; j++) {
+		sum += arr[j];
+		if (max < sum)
+			max = sum;
+		if(sum<0)
+			sum=0;
 	}
-
-	public static void main(String args[]) {
-		int[] arr = { 16, 4, -4, -6, -8, -2 };
-		System.out.println(sum(arr));
+	System.out.println(max);
+}		time O(n)
+---------------------------------
+3) Print Starting and ending Element of largest sum
+static void maxSubArraySum(int[] arr, int n) {
+	int max = arr[0];
+	int sum = arr[0], start = 0, end = 0, s = 0;
+	for (int j = 1; j < arr.length; j++) {
+		sum += arr[j];
+		if (max < sum) {
+			max = sum;
+			start = s;
+			end = j;
+		} else if (sum < 0) {
+			sum = 0;
+			s = j + 1;
+		}
 	}
-}
+	System.out.println(max + " " + s + " " + end);
+}		time O(n)
