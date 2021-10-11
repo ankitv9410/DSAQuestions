@@ -1,0 +1,24 @@
+Rotation by One
+1)Using for loop
+	public static void rotate(int[] arr) {
+		int n = arr.length-1;
+			int temp = arr[n];
+			for (int j = n; j > 0; j--) 
+				arr[j] = arr[j-1];
+			arr[0] = temp;
+	}
+		time O(n)
+2)Using Two pointers
+static void rotate(int[] arr, int n) {
+		for (int j2 = 0; j2 < 2; j2++) {
+			int i = 0, j = arr.length - 1;
+			while (i < j) {
+				int temp = arr[i];
+				arr[i] = arr[j];
+				arr[j] = temp;
+				i++;
+			}
+		}
+	}		time O(n)
+----------------------------------------------
+Rotation more than one elements
