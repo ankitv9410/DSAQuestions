@@ -46,27 +46,18 @@ class Solution {
 }                                                Time O(n)   space O(1)
 ---------------------------------------------------------------------------
 3)Optimized Solution
-class Solution {
-	public static int bruteForce(int[] arr) {
-
-		int min = arr[0], max = arr[0], maxProfit;
-		max = maxProfit = 0;
-		for (int i = 1; i < arr.length; i++) {
-			if(arr[i]<min)
-				min = arr[i];    // min = Math.min(arr[i], min);
-			
-			max = arr[i]-min;
-			if(max>maxProfit)
-				maxProfit = max;   // maxProfit = Math.max(max, maxProfit);
+int smallEle = arr[0];
+	int profit=0,maxProfit=0;
+	for (int i = 1; i < arr.length; i++) {
+		if(arr[i]<smallEle){
+			smallEle = arr[i];
 		}
-		return maxProfit;
+		profit = arr[i] - smallEle;
+		if(profit>maxProfit) {
+			maxProfit = profit;
+		}
 	}
-
-	public static void main(String args[]) {
-		int[] arr = { 3, 5, 1, 7, 4, 9, 3 };
-		System.out.println(bruteForce(arr));
-	}
-}                                                Time O(n)   space O(1)
+}                                      Time O(n)   space O(1)
 ---------------------------------------------------------------------------
 We can buy and sell many times.
 class Solution {
