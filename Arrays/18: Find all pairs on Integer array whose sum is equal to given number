@@ -1,80 +1,46 @@
-import java.util.Scanner;
-
-class Solution {
-	public static void bruteForce(int []arr,int k) {
-		
-		int count=0;
-		for (int i = 0; i < arr.length; i++) {
-			for (int j = i+1; j < arr.length; j++) {
-				if(arr[i]+arr[j]==k)
-					count++;
-			}
+public static void bruteForce(int []arr,int k) {
+	int count=0;
+	for (int i = 0; i < arr.length; i++) {
+		for (int j = i+1; j < arr.length; j++) {
+			if(arr[i]+arr[j]==k)
+				count++;
 		}
-		System.out.println(count);
 	}
-	public static void main(String args[]) {
-		Scanner sc = new Scanner(System.in);
-		int n = sc.nextInt();
-		int k = sc.nextInt();
-		int []arr = new int[n];
-		for (int i = 0; i < arr.length; i++) 
-			arr[i] = sc.nextInt();
-		bruteForce(arr, k);
-	}
-}				time O(n^2)  space O(1)
+	System.out.println(count);
+}		time O(n^2)  space O(1)
 ------------------------------------------------------------
-class Solution {
-	public static void findPairs(int[] arr, int sum) {
-		int low, high;
-		low = 0;
-		high = 1;
-		while (low < high) {
-			if (arr[low] + arr[high] == sum)
-				System.out.println(arr[low] + " " + arr[high]);
-			if (high == arr.length - 1) {
-				low++;
-				high = low;
-			}
-			if (low == arr.length - 1) {
-				break;
-			}
-			high++;
+public static void findPairs(int[] arr, int sum) {
+	int low, high;
+	low = 0;
+	high = 1;
+	while (low < high) {
+		if (arr[low] + arr[high] == sum)
+			System.out.println(arr[low] + " " + arr[high]);
+		if (high == arr.length - 1) {
+			low++;
+			high = low;
 		}
+		if (low == arr.length - 1) {
+			break;
+		}
+		high++;
 	}
-	public static void main(String[] args) {
-		int[] arr = { 1, 5,7,-1,5 };
-		int sum = 6;
-		findPairs(arr, sum);
-	}
-}				time O(n(logn))  space O(1)
+}		time O(n(logn))  space O(1)
 ------------------------------------------------------------
-import java.util.HashMap;
-
-class Solution {
-	static int arr[] = new int[] { 1, 1, 1, 1 };
-
-	static int getPairsCount(int n, int sum) {
-		HashMap<Integer, Integer> hmap = new HashMap<>();
-
-		for (int i = 0; i < n; i++) {
-			if (!hmap.containsKey(arr[i]))
-				hmap.put(arr[i], 0);
-
-			hmap.put(arr[i], hmap.get(arr[i]) + 1);
-		}
-		int count = 0;
-
-		for (int i = 0; i < n; i++) {
-			int j = sum - arr[i];
-			if (hmap.get(j) != null)
-				count += hmap.get(j);
-			if (j == arr[i])
-				count--;
-		}
-		return count / 2;
+static int getPairsCount(int n, int sum) {
+	HashMap<Integer, Integer> hmap = new HashMap<>();
+	for (int i = 0; i < n; i++) {
+		if (!hmap.containsKey(arr[i]))
+			hmap.put(arr[i], 0);
+		hmap.put(arr[i], hmap.get(arr[i]) + 1);
 	}
-	public static void main(String[] args) {
-		int sum = 2;
-		System.out.println("Count of pairs is " + getPairsCount(arr.length, sum));
+	int count = 0;
+	for (int i = 0; i < n; i++) {
+		int j = sum - arr[i];
+		if (hmap.get(j) != null)
+			count += hmap.get(j);
+		if (j == arr[i])
+			count--;
 	}
-}				time O(n)  space O(n)
+	return count / 2;
+}	time O(n)  space O(n)
