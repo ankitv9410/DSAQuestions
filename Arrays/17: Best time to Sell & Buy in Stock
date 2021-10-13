@@ -1,29 +1,21 @@
 Q)Buy and Sell only One Stock
   1)Brute force -->
-  class Solution {
-	public static int bruteForce(int[] arr) {
-
-		int max,maxProfit;
-		max = maxProfit = 0;
-		for (int i = 0; i < arr.length; i++) {
-			for (int j = i+1; j < arr.length; j++) {
-				if (arr[i] < arr[j]) {
-					System.out.println(arr[i]+" "+arr[j]);
-					max = arr[j] - arr[i];
-				}
-				if(max > maxProfit)
-					maxProfit = max;
+ public static int bruteForce(int[] arr) {
+	int max,maxProfit;
+	max = maxProfit = 0;
+	for (int i = 0; i < arr.length; i++) {
+		for (int j = i+1; j < arr.length; j++) {
+			if (arr[i] < arr[j]) {
+				max = arr[j] - arr[i];
 			}
-			System.out.println(maxProfit);
+			if(max > maxProfit)
+				maxProfit = max;
 		}
-		return maxProfit;
+		System.out.println(maxProfit);
 	}
-
-	public static void main(String args[]) {
-		int[] arr = { 3, 5, 1, 7, 4, 9, 3 };
-		System.out.println(bruteForce(arr));
-	}
-}                                                Time O(n^2)   space O(1)
+	return maxProfit;
+}
+               Time O(n^2)   space O(1)
 -------------------------------------------------------------------------
 2)Optimized Solution
 class Solution {
