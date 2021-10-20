@@ -1,89 +1,22 @@
-class Solution {
-	Node head;
+	Node merge(Node headA,Node headB) {
+		Node dummy = new Node(2);
+		Node prev = dummy;
+		
+		Node c1 = headA;
+		Node c2 = headB;
+		
+		while(c1!=null && c2!=null) {
+			if(c1.data<c2.data) {
+				prev.next = c1;
+				c1 = c1.next;
+			}else {
+				prev.next = c2;
+				c2 = c2.next;
+			}
+			prev = prev.next;
+		}
+		prev.next = c1 != null ? c1 : c2;
+		return dummy.next;
+	}		time O(n) space O(n)
+	-------------------------------------------
 	
-	static class Node {
-		int data;
-		Node next;
-
-		Node(int data) {
-			this.data = data;
-			next = null;
-		}
-	}
-
-	void add(int data) {
-		Node toAdd = new Node(data);
-
-		if (isEmpty()) {
-			head = toAdd;
-			return;
-		}
-
-		Node temp = head;
-		while (temp.next != null)
-			temp = temp.next;
-		temp.next = toAdd;
-	}
-
-	boolean isEmpty() {
-		return head == null;
-	}
-
-	void print() {
-		Node temp = head;
-		while (temp != null) {
-			System.out.print(temp.data + " ");
-			temp = temp.next;
-		}
-	}
-	Node mergeList(Node headA,Node headB) {
-		{
-		    Node dummyNode = new Node(0);
-		    Node tail = dummyNode;
-		    while(true)
-		    {
-		        if(headA == null)
-		        {
-		            tail.next = headB;
-		            break;
-		        }
-		        if(headB == null)
-		        {
-		            tail.next = headA;
-		            break;
-		        }
-		        if(headA.data <= headB.data)
-		        {
-		        	System.out.println(headA.data);
-		            tail.next = headA;
-		            headA = headA.next;
-		        }
-		        else
-		        {
-		        	System.out.println(headB.data);
-		            tail.next = headB;
-		            headB = headB.next;
-		        }
-		        tail = tail.next;
-		        System.out.println(tail.data);
-		    }
-		    return dummyNode.next;
-		}
-	}
-	public static void main(String args[]) {
-		Solution s1 = new Solution();
-		s1.add(0);
-		s1.add(4);
-		s1.add(6);
-		Solution s2 = new Solution();
-		s2.add(1);
-		s2.add(5);
-		s2.add(8);
-		s1.print();
-		System.out.println();
-		s2.print();
-		System.out.println();
-		s1.head = s1.mergeList(s1.head,s2.head);
-		s2.print();
-	}
-}
