@@ -1,3 +1,14 @@
+void palindrome() {
+	String str = "Ankit";
+	String rev = "";
+	char[] str1 = str.toCharArray();
+	for (int i = 0; i < str.length(); i++) {
+		rev += str1[str.length()-1-i];
+	}
+	if(str.equals(rev))
+		System.out.println("Palindrome");
+}	time O(n)   space O(n)
+------------------------------------------------------------------
 public class Test {
 	void func() {
 		String s = "ank";
@@ -22,4 +33,3 @@ public class Test {
 		t.func();
 	}
 }             time = O(n)
-------------------------------------
