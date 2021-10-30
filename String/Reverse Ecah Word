@@ -1,0 +1,13 @@
+	void reverseEachWord() {
+		String str = "I am Ankit Verma";
+		String s[] = str.split(" ");
+		String rev = "";
+		for (String string : s) {
+			StringBuilder sb = new StringBuilder(string);
+			sb.reverse();
+			rev += sb+" ";
+		}
+		System.out.println(rev);
+	}
+  --------------------------------------
+  
