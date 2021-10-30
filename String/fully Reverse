@@ -1,0 +1,27 @@
+	void reverse() {
+		String str = "I am Ankit Verma";
+		char ch[] = str.toCharArray();
+		String rev="";
+		for (int i = str.length()-1; i > 0; i--) {
+			rev += ch[i];
+ 		}
+		System.out.println(rev);
+	}
+  ---------------------------------------------
+  void reverse() {
+		String str = "I am Ankit Verma";
+		StringBuilder sb = new StringBuilder(str);
+		sb.reverse();
+		System.out.println(sb);
+	}
+  -----------------------------------------------
+  void reverse() {
+		String str = "I am Ankit Verma";
+		byte[] strByte = str.getBytes();
+		byte result[] = new byte[strByte.length];
+		
+		for (int i = 0; i < strByte.length; i++) {
+			result[i] = strByte[strByte.length-i-1];
+		}
+		System.out.println(new String(result));
+	}
