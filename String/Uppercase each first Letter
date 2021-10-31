@@ -1,0 +1,11 @@
+	void upperCase() {
+		String str = "i am ankit verma";
+		String[] s = str.split(" ");
+		String rev = "";
+		for (String string : s) {
+			String first = string.substring(0,1);
+			String last = string.substring(1);
+			rev += first.toUpperCase()+last+" ";
+		}
+		System.out.print(rev);
+	}
