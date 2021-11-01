@@ -12,3 +12,15 @@ void checkRotated() {
 		}
 	}
 }
+-------------------------------------------------------------
+void checkRotated() {
+	String str1 = "nitin";
+	String str2 = "tinni";
+	
+	String temp = str1+str1;
+	if(temp.contains(str2)) {
+		System.out.println("Yes");
+	}else {
+		System.out.println("No");
+	}
+}
