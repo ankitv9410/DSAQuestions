@@ -1,0 +1,5 @@
+	void replaceWhiteSpaces() {
+		String str = "       Geeks     for    Geeks   " ;
+		str = str.replaceAll(" ", "");
+		System.out.println(str);
+	}
