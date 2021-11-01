@@ -1,0 +1,26 @@
+	void anagram() {
+		String s1 = "nitin";
+		String s2 = "nitin";
+
+		int n1 = s1.length();
+		int n2 = s2.length();
+
+		if (n1 != n2) {
+			System.out.println("Not Anagram");
+			return;
+		}
+		String s11[] = s1.split("");
+		String s12[] = s2.split("");
+		Arrays.sort(s11);
+		Arrays.sort(s12);
+
+		for (int i = 0; i < s12.length; i++) {
+			System.out.println(s11[i]+" "+s12[i]);
+			if (!s11[i].equals(s12[i])) {
+				System.out.println("Not anagram");
+				return;
+			}
+		}
+		System.out.println("Anagram");
+	}           time O(n)
+  -------------------------------------------
