@@ -1,3 +1,16 @@
+static String minAndMax(int[] arr) {
+	int min,max;
+	min = Integer.MAX_VALUE;
+	max =Integer.MIN_VALUE;
+	for (int i = 0; i < arr.length; i++) {
+		if(arr[i]<min)
+			min = arr[i];
+		if(arr[i]>max)
+			max = arr[i];
+	}
+	return min+" "+max;
+}
+-------------------------------------------------
 public static void findMinMax(int[] arr, int n) {
 	int i = 0;
 	if (n % 2 == 0) {
