@@ -1,0 +1,17 @@
+void swap() {
+		String a = "ankit";
+		String b = "Surbhi";
+		String temp = a;
+		a = b;
+		b = temp;
+		System.out.println(a+" "+b);
+	}
+------------------------------------
+void swap() {
+		String a = "ankit";
+		String b = "Surbhi";
+		a = a+b;
+		b = a.substring(0,a.length()-b.length());
+		a = a.substring(b.length());
+		System.out.println(a+" "+b);
+	}
