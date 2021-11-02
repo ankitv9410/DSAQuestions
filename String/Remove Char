@@ -1,0 +1,6 @@
+	void removeChar() {
+		String strOriginal = "India is my country"; 
+		int p = 10;
+		String strRemove = strOriginal.substring(0,p-1)+strOriginal.substring(p,strOriginal.length());
+		System.out.println(strRemove);
+	}
