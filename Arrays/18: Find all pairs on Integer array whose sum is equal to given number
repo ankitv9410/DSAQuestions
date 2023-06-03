@@ -25,7 +25,7 @@ public static void findPairs(int[] arr, int sum) {
 		}
 		high++;
 	}
-}		time O(n(logn))  space O(1)
+} 	time O(n(logn))  space O(1)
 ------------------------------------------------------------
 static int getPairsCount(int n, int sum) {
 	HashMap<Integer, Integer> hmap = new HashMap<>();
