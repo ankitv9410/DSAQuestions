@@ -31,20 +31,6 @@ int min = Integer.MAX_VALUE, maxProfit = Integer.MIN_VALUE;
 	System.out.println(maxProfit);
 }                 Time O(n)   space O(1)
 ---------------------------------------------------------------------------
-3)Optimized Solution
-int smallEle = arr[0];
-	int profit=0,maxProfit=0;
-	for (int i = 1; i < arr.length; i++) {
-		if(arr[i]<smallEle){
-			smallEle = arr[i];
-		}
-		profit = arr[i] - smallEle;
-		if(profit>maxProfit) {
-			maxProfit = profit;
-		}
-	}
-}                                      Time O(n)   space O(1)
----------------------------------------------------------------------------
 We can buy and sell many times.
 public static int bruteForce(int[] A, int n) {
 	int bd, sd, profit;
