@@ -1,0 +1,8 @@
+public static long Pow(int X, int N) {
+		//Write your code here
+		if(N==0)
+		   return 1;
+		long xnm1 = Pow(X, N-1);
+		long xn = X * xnm1;
+		return xn;
+	}
