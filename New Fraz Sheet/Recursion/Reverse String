@@ -7,3 +7,15 @@ void Demo(String str) {
 		}
 	}
   Time O(n^2) Space O(n)
+  
+ -----------------------------------------------------------------
+ void Demo(char[] str,int i,int j) {
+		if(i == j)
+			return;
+		else {
+			char temp = str[i];
+			Demo(str,i+1,j);
+			System.out.print(temp+"");
+		}
+	}
+Time O(n)  Space O(n)
