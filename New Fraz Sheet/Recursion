@@ -1,0 +1,9 @@
+void Demo(String str) {
+		if(str == null || str.length()<=1)
+			System.out.println(str);
+		else {
+			System.out.print(str.charAt(str.length()-1));
+			Demo(str.substring(0 , str.length()-1));
+		}
+	}
+  Time O(n^2) Space O(n)
