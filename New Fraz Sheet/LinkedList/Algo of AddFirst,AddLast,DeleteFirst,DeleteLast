@@ -1,0 +1,74 @@
+public class Ankit {
+	Node head;
+	class Node {
+		String data;
+		Node Next;
+		Node(String data){
+			this.data = data;
+			Next = null;
+		}
+	}
+	public void addFirst(String data) {
+		Node newNode = new Node(data);
+		if(head == null) {
+			head = newNode;
+			newNode.Next = null;
+			return;
+		}
+		newNode.Next = head;
+		head = newNode;
+	}
+	public void addLast(String data) {
+		Node newNode = new Node(data);
+		if(head == null) {
+			head = newNode;
+			newNode.Next = null;
+		}
+		Node trav = head;
+		while(trav.Next != null) {
+			trav = trav.Next;
+		}
+		trav.Next = newNode;
+	}
+	public void deleteFirst() {
+		head = head.Next;
+	}
+	public void deleteLast() {
+		if(head == null) {
+			System.out.println("Empty List");
+			return;
+		}
+		if(head.Next == null) {
+			head = null;
+			return;
+		}
+		Node last = head.Next;
+		Node secLast = head;
+		while(last.Next != null) {
+			last = last.Next;
+			secLast = secLast.Next;
+		}
+		secLast.Next = null;
+	}
+	public void printList() {
+		Node trav = head;
+		while(trav != null) {
+			System.out.print(trav.data+" --> ");
+			trav = trav.Next;
+		}
+		System.out.println("Null");
+	}
+	public static void main(String[] args) {
+		Ankit a = new Ankit();
+		a.addFirst("Good");
+		a.addFirst("Is");
+		a.addFirst("This");
+		a.printList();
+		a.addLast("Boy");
+		a.printList();
+		a.deleteFirst();
+		a.printList();
+		a.deleteLast();
+		a.printList();
+	}
+}
