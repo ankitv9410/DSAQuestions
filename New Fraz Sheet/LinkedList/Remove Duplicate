@@ -1,0 +1,12 @@
+public void removeDuplicate() {
+		Node ptr1 = head,ptr2;
+		while(ptr1.Next != null) {
+			ptr2 = ptr1;
+			while(ptr2.Next != null) {
+				if(ptr1.data == ptr2.Next.data)
+					ptr2.Next = ptr2.Next.Next;
+				ptr2 = ptr2.Next;
+			}
+			ptr1 = ptr1.Next;
+		}
+	}    Time O(n^2)  Space O(n)
