@@ -1,0 +1,21 @@
+public void deleteAnyNode(int n) {
+		if(head == null) {
+			System.out.println("Empty List");
+			return;
+		}
+		else if(head.Next == null) {
+			System.out.println("No second Element");
+			return;
+		}else {
+			Node prev = head;
+			Node forw = head.Next;
+			int i = 1;
+			while(i < n) {
+				prev = prev.Next;
+				forw = forw.Next;
+				i++;
+			}
+			if(forw.Next != null)
+			prev.Next = forw.Next;
+		}
+	}
