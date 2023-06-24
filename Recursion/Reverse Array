@@ -1,0 +1,11 @@
+public void recursion(int arr[], int i,int j) {
+		if (i == j) {
+			for(int k : arr)
+				System.out.print(k+" ");
+			return;
+		}
+		int temp = arr[i];
+		arr[i] = arr[j];
+		arr[j] = temp;
+		recursion(arr,i+1, j-1);
+	}
